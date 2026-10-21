@@ -19,33 +19,33 @@ import ownUtil.*;
 public class SportvereineAnwendungssystem {
 	  
     //---Anfang Attribute der grafischen Oberflaeche---
-    private Pane pane     					= new  Pane();
-    private Label lblEingabe    	 		= new Label("Eingabe");
-    private Label lblAnzeige   	 	    	= new Label("Anzeige");
-    private Label lblName 					= new Label("Name:");
-    private Label lblOrt   		 			= new Label("Ort:");
-    private Label lblAnzahlMitglieder  	 	= new Label("Anzahl Mitglieder:");
-    private Label lblAnzahlEhemaligerMitglieder   	
+    public Pane pane     					= new  Pane();
+    public Label lblEingabe    	 		= new Label("Eingabe");
+    public Label lblAnzeige   	 	    	= new Label("Anzeige");
+    public Label lblName 					= new Label("Name:");
+    public Label lblOrt   		 			= new Label("Ort:");
+    public Label lblAnzahlMitglieder  	 	= new Label("Anzahl Mitglieder:");
+    public Label lblAnzahlEhemaligerMitglieder   	
      										= new Label("Anzahl ehemaliger Mitglieder:");
-    private Label lblSportarten  			= new Label("Sportarten:");
-    private TextField txtName 	 			= new TextField();
-    private TextField txtOrt				= new TextField();
-    private TextField txtAnzahlMitglieder	= new TextField();
-    private TextField txtAnzahlEhemaligerMitglieder	
+    public Label lblSportarten  			= new Label("Sportarten:");
+    public TextField txtName 	 			= new TextField();
+    public TextField txtOrt				= new TextField();
+    public TextField txtAnzahlMitglieder	= new TextField();
+    public TextField txtAnzahlEhemaligerMitglieder	
     										= new TextField();
-    private TextField txtSportarten	 		= new TextField();
-    private TextArea txtAnzeige  			= new TextArea();
-    private Button btnEingabe 		 		= new Button("Eingabe");
-    private Button btnAnzeige 		 		= new Button("Anzeige");
-    private MenuBar mnbrMenuLeiste  		= new MenuBar();
-    private Menu mnDatei             		= new Menu("Datei");
-    private MenuItem mnItmCsvImport 		= new MenuItem("csv-Import");
-    private MenuItem mnItmTxtImport 		= new MenuItem("txt-Import");
-    private MenuItem mnItmCsvExport 		= new MenuItem("csv-Export");    
+    public TextField txtSportarten	 		= new TextField();
+    public TextArea txtAnzeige  			= new TextArea();
+    public Button btnEingabe 		 		= new Button("Eingabe");
+    public Button btnAnzeige 		 		= new Button("Anzeige");
+    public MenuBar mnbrMenuLeiste  		= new MenuBar();
+    public Menu mnDatei             		= new Menu("Datei");
+    public MenuItem mnItmCsvImport 		= new MenuItem("csv-Import");
+    public MenuItem mnItmTxtImport 		= new MenuItem("txt-Import");
+    public MenuItem mnItmCsvExport 		= new MenuItem("csv-Export");    
     //-------Ende Attribute der grafischen Oberflaeche-------
     
     // speichert temporaer ein Objekt vom Typ Sportverein
-    private Sportverein sportverein;
+    public Sportverein sportverein;
     
     public SportvereineAnwendungssystem(Stage primaryStage){
     	Scene scene = new Scene(this.pane, 700, 340);
@@ -56,7 +56,7 @@ public class SportvereineAnwendungssystem {
 		this.initListener();
     }
     
-    private void initKomponenten(){
+    public void initKomponenten(){
        	// Labels
     	lblEingabe.setLayoutX(20);
     	lblEingabe.setLayoutY(40);
@@ -125,7 +125,7 @@ public class SportvereineAnwendungssystem {
  	    pane.getChildren().add(mnbrMenuLeiste);
    }
    
-   private void initListener() {
+   public void initListener() {
 	    btnEingabe.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -158,7 +158,7 @@ public class SportvereineAnwendungssystem {
 	    });
     }
     
-    private void nehmeSportvereinAuf(){
+    public void nehmeSportvereinAuf(){
     	try{ 
     		this.sportverein = new Sportverein(
     			txtName.getText(), 
@@ -173,7 +173,7 @@ public class SportvereineAnwendungssystem {
      	}
     }
    
-    private void zeigeSportvereineAn(){
+    public void zeigeSportvereineAn(){
     	if(this.sportverein != null){
     		txtAnzeige.setText(
     			this.sportverein.gibSportvereinZurueck(' '));
@@ -183,7 +183,7 @@ public class SportvereineAnwendungssystem {
     	}
     }    
 		  
-    private void leseAusDatei(String typ){
+    public void leseAusDatei(String typ){
     	try {
       		if("csv".equals(typ)){
       			BufferedReader ein = new BufferedReader(new FileReader("Sportverein.csv"));
@@ -212,7 +212,7 @@ public class SportvereineAnwendungssystem {
 		}
 	}
 		
-	private void schreibeSportvereineInCsvDatei() {
+	public void schreibeSportvereineInCsvDatei() {
 		try {
 			BufferedWriter aus 
 				= new BufferedWriter(new FileWriter("SportvereineAusgabe.csv", true));
@@ -231,7 +231,7 @@ public class SportvereineAnwendungssystem {
 		}
 	}
 
-    private void zeigeInformationsfensterAn(String meldung){
+    public void zeigeInformationsfensterAn(String meldung){
     	new MeldungsfensterAnzeiger(AlertType.INFORMATION,
     		"Information", meldung).zeigeMeldungsfensterAn();
     }	
